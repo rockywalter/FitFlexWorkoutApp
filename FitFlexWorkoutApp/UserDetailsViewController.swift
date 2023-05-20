@@ -161,7 +161,8 @@ class UserDetailsViewController: UIViewController {
     }
     
     @objc func buttonTapped() {
-            // Handle button tap event
+            let nextScreen = GoalSelectionViewController()
+        navigationController?.pushViewController(nextScreen, animated: true)
         }
     
     func setupLabel()

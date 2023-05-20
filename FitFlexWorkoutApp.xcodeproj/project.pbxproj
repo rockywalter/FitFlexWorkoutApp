@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F76DD4E52A1947F1008129D0 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76DD4E42A1947F1008129D0 /* UserDetailsViewController.swift */; };
+		F76DD4E72A194EE5008129D0 /* GoalSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76DD4E62A194EE5008129D0 /* GoalSelectionViewController.swift */; };
 		F7E84BCD2A193CB200BA7E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E84BCC2A193CB200BA7E62 /* AppDelegate.swift */; };
 		F7E84BCF2A193CB200BA7E62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E84BCE2A193CB200BA7E62 /* SceneDelegate.swift */; };
 		F7E84BD12A193CB200BA7E62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E84BD02A193CB200BA7E62 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		F76DD4E42A1947F1008129D0 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
+		F76DD4E62A194EE5008129D0 /* GoalSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSelectionViewController.swift; sourceTree = "<group>"; };
 		F7E84BC92A193CB200BA7E62 /* FitFlexWorkoutApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitFlexWorkoutApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E84BCC2A193CB200BA7E62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7E84BCE2A193CB200BA7E62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				F76DD4E42A1947F1008129D0 /* UserDetailsViewController.swift */,
+				F76DD4E62A194EE5008129D0 /* GoalSelectionViewController.swift */,
 				F7E84BCC2A193CB200BA7E62 /* AppDelegate.swift */,
 				F7E84BCE2A193CB200BA7E62 /* SceneDelegate.swift */,
 				F7E84BD02A193CB200BA7E62 /* ViewController.swift */,
@@ -140,6 +143,7 @@
 				F7E84BD12A193CB200BA7E62 /* ViewController.swift in Sources */,
 				F7E84BCD2A193CB200BA7E62 /* AppDelegate.swift in Sources */,
 				F76DD4E52A1947F1008129D0 /* UserDetailsViewController.swift in Sources */,
+				F76DD4E72A194EE5008129D0 /* GoalSelectionViewController.swift in Sources */,
 				F7E84BCF2A193CB200BA7E62 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
