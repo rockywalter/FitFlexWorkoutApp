@@ -9,6 +9,8 @@ import UIKit
 
 class DayPlanViewController: UIViewController, UITableViewDataSource ,UITableViewDelegate{
     
+    let welcomeLabel = UILabel()
+    
     let days = [
         Day(name: "Day 01", image: "1"),
         Day(name: "Day 02", image: "2"),
@@ -32,13 +34,13 @@ class DayPlanViewController: UIViewController, UITableViewDataSource ,UITableVie
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -0),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -0),
  
                     ])
-       
+        setupWelcomeLabel()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,9 +58,34 @@ class DayPlanViewController: UIViewController, UITableViewDataSource ,UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         print("cell of \(days[indexPath.row].name) is clicked")
+        
+        let nextScreen = WorkoutListViewController()
+        navigationController?.pushViewController(nextScreen, animated: true)
     }
     
     
+    func setupWelcomeLabel()
+    {
+        view.addSubview(welcomeLabel)
+        
+        welcomeLabel.text = "Hello Vishwa!"
+        welcomeLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        welcomeLabel.textColor = UIColor.black
+        welcomeLabel.textAlignment = .left
+        
+        welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            welcomeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5),
+            welcomeLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 1),
+            welcomeLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -1),
+        //    welcomeLabel.heightAnchor.constraint(equalToConstant: 40)
+         //   stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -70),
+ 
+         
+                    ])
+        
+        
+    }
    
 
 
@@ -71,10 +98,11 @@ class CustomeCell : UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        dayName.font = UIFont.boldSystemFont(ofSize: 20)
         addSubview(dayImage)
         addSubview(dayName)
         dayImage.frame = CGRect(x: 10, y: 10, width: 100, height: 100)
-        dayName.frame = CGRect(x: 120, y: 20, width: 120, height: 30)
+        dayName.frame = CGRect(x: 200, y: 40, width: 120, height: 30)
     }
     
     required init?(coder: NSCoder) {

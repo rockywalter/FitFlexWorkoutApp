@@ -86,37 +86,37 @@ class UserDetailsViewController: UIViewController {
     {
          let textField1 = UITextField()
          textField1.placeholder = "Name"
-        textField1.backgroundColor = UIColor.systemGray2
-        textField1.layer.borderWidth = 0.5
+        textField1.backgroundColor = UIColor.secondarySystemBackground
+        textField1.layer.borderWidth = 0.2
         textField1.borderStyle = .roundedRect
         textField1.layer.borderColor = UIColor.black.cgColor
 
         let textField2 = UITextField()
         textField2.placeholder = "Hight"
-        textField2.backgroundColor = UIColor.systemGray2
+        textField2.backgroundColor = UIColor.secondarySystemBackground
         textField2.borderStyle = .roundedRect
-        textField2.layer.borderWidth = 0.5
+        textField2.layer.borderWidth = 0.2
         textField2.layer.borderColor = UIColor.black.cgColor
 
         let textField3 = UITextField()
         textField3.placeholder = "Weight"
-        textField3.backgroundColor = UIColor.systemGray2
+        textField3.backgroundColor = UIColor.secondarySystemBackground
         textField3.borderStyle = .roundedRect
-        textField3.layer.borderWidth = 0.5
+        textField3.layer.borderWidth = 0.2
         textField3.layer.borderColor = UIColor.black.cgColor
 
         let textField4 = UITextField()
         textField4.placeholder = "Age"
-        textField4.backgroundColor = UIColor.systemGray2
+        textField4.backgroundColor = UIColor.secondarySystemBackground
         textField4.borderStyle = .roundedRect
-        textField4.layer.borderWidth = 0.5
+        textField4.layer.borderWidth = 0.2
         textField4.layer.borderColor = UIColor.black.cgColor
 
         let genderSelect = UISegmentedControl()
-        genderSelect.backgroundColor = UIColor.systemGray2
+        genderSelect.backgroundColor = UIColor.secondarySystemBackground
         genderSelect.insertSegment(withTitle: "Male", at: 0, animated: true)
         genderSelect.insertSegment(withTitle: "Female", at: 1, animated: true)
-        genderSelect.layer.borderWidth = 0.5
+        genderSelect.layer.borderWidth = 0.2
         genderSelect.layer.borderColor = UIColor.black.cgColor
          
         label.text = "Let's Get Started!"

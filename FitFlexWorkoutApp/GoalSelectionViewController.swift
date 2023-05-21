@@ -77,7 +77,7 @@ class GoalSelectionViewController: UIViewController , UIPickerViewDataSource, UI
     func addObjectToStackView ()
     {
         let bmiLabel = UILabel()
-        bmiLabel.text = "Your BMI is 27"
+        bmiLabel.text = "BMI 24.2 | Normal Weight"
         bmiLabel.font = UIFont.boldSystemFont(ofSize: 20)
         bmiLabel.textColor = UIColor.black
         bmiLabel.textAlignment = .center
@@ -91,8 +91,8 @@ class GoalSelectionViewController: UIViewController , UIPickerViewDataSource, UI
         goalPickerView.delegate = self
         goalTextField.inputView = goalPickerView
         goalTextField.placeholder = "Select an option"
-        goalTextField.backgroundColor = UIColor.systemGray2
-        goalTextField.layer.borderWidth = 0.5
+        goalTextField.backgroundColor = UIColor.secondarySystemBackground
+        goalTextField.layer.borderWidth = 0.2
         goalTextField.borderStyle = .roundedRect
         goalTextField.layer.borderColor = UIColor.black.cgColor
         
@@ -103,11 +103,11 @@ class GoalSelectionViewController: UIViewController , UIPickerViewDataSource, UI
         fitnessLabel.textAlignment = .left
         
         let fitnessSelect = UISegmentedControl()
-        fitnessSelect.backgroundColor = UIColor.systemGray2
+        fitnessSelect.backgroundColor = UIColor.secondarySystemBackground
         fitnessSelect.insertSegment(withTitle: "Beginner", at: 0, animated: true)
         fitnessSelect.insertSegment(withTitle: "Intermediate", at: 1, animated: true)
         fitnessSelect.insertSegment(withTitle: "Advances", at: 1, animated: true)
-        fitnessSelect.layer.borderWidth = 0.5
+        fitnessSelect.layer.borderWidth = 0.2
         fitnessSelect.layer.borderColor = UIColor.black.cgColor
         
         let spacer1 = UIView()
