@@ -51,8 +51,8 @@ class UserDetailsViewController: UIViewController {
             logo.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 1),
             logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            logo.heightAnchor.constraint(equalToConstant: 200),
-            logo.widthAnchor.constraint(equalToConstant: 200)
+            logo.heightAnchor.constraint(equalToConstant: 180),
+            logo.widthAnchor.constraint(equalToConstant: 180)
                     ])
         
         logo.image = UIImage(named: "logo")
@@ -170,6 +170,8 @@ class UserDetailsViewController: UIViewController {
         
         
     }
+    
+    
 
 
     
