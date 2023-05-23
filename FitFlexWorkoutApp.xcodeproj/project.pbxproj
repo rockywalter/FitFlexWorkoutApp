@@ -15,6 +15,7 @@
 		F7E84BD12A193CB200BA7E62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E84BD02A193CB200BA7E62 /* ViewController.swift */; };
 		F7E84BD62A193CB300BA7E62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7E84BD52A193CB300BA7E62 /* Assets.xcassets */; };
 		F7E84BD92A193CB300BA7E62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7E84BD72A193CB300BA7E62 /* LaunchScreen.storyboard */; };
+		F7EC51782A1CF8AC009F3A97 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EC51772A1CF8AC009F3A97 /* HomeViewController.swift */; };
 		F7FF28072A1A15DD00BE9A01 /* DayPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FF28062A1A15DD00BE9A01 /* DayPlanViewController.swift */; };
 		F7FF28092A1A4FF900BE9A01 /* WorkoutListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FF28082A1A4FF900BE9A01 /* WorkoutListViewController.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,7 @@
 		F7E84BD52A193CB300BA7E62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7E84BD82A193CB300BA7E62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7E84BDA2A193CB300BA7E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7EC51772A1CF8AC009F3A97 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F7FF28062A1A15DD00BE9A01 /* DayPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPlanViewController.swift; sourceTree = "<group>"; };
 		F7FF28082A1A4FF900BE9A01 /* WorkoutListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +71,7 @@
 				F76DD4E62A194EE5008129D0 /* GoalSelectionViewController.swift */,
 				F7FF28062A1A15DD00BE9A01 /* DayPlanViewController.swift */,
 				F7E84BCC2A193CB200BA7E62 /* AppDelegate.swift */,
+				F7EC51772A1CF8AC009F3A97 /* HomeViewController.swift */,
 				F7E84BCE2A193CB200BA7E62 /* SceneDelegate.swift */,
 				F7E84BD02A193CB200BA7E62 /* ViewController.swift */,
 				F7FF28082A1A4FF900BE9A01 /* WorkoutListViewController.swift */,
@@ -154,6 +157,7 @@
 				F7E84BCD2A193CB200BA7E62 /* AppDelegate.swift in Sources */,
 				F76DD4E52A1947F1008129D0 /* UserDetailsViewController.swift in Sources */,
 				F78077DF2A19EEBC000CD1B2 /* DropdownViewController.swift in Sources */,
+				F7EC51782A1CF8AC009F3A97 /* HomeViewController.swift in Sources */,
 				F76DD4E72A194EE5008129D0 /* GoalSelectionViewController.swift in Sources */,
 				F7FF28072A1A15DD00BE9A01 /* DayPlanViewController.swift in Sources */,
 				F7E84BCF2A193CB200BA7E62 /* SceneDelegate.swift in Sources */,

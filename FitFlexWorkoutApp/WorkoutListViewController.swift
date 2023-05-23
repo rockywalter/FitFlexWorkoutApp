@@ -13,12 +13,12 @@ class WorkoutListViewController: UIViewController , UITableViewDataSource ,UITab
     let startLabel = UILabel()
 
     let exercises = [
-        Exercise(image: "e1", name: "Pushup",discription:"xyz", duration: "2min"),
-        Exercise(image: "e2", name: "Pushup",discription:"xyz", duration: "2min"),
-        Exercise(image: "e3", name: "Pushup",discription:"xyz", duration: "2min"),
-        Exercise(image: "e4", name: "Pushup",discription:"xyz", duration: "2min"),
-        Exercise(image: "e5", name: "Pushup",discription:"xyz", duration: "2min"),
-        Exercise(image: "e5", name: "Pushup",discription:"xyz", duration: "2min")
+        Exercise(image: "e1", name: "Squats",discription:" Lower body exercise", duration: "10"),
+        Exercise(image: "e2", name: "Run",discription:"A form of aerobic exercise", duration: "20min"),
+        Exercise(image: "e3", name: "Bench Press",discription:"Good for chest", duration: "10"),
+        Exercise(image: "e4", name: "Back Press",discription:"Good for Back", duration: "15"),
+        Exercise(image: "e5", name: "Burpees",discription:"Good for all body", duration: "2min"),
+        Exercise(image: "e5", name: "Mountain climbers",discription:"Good for all body", duration: "2min")
     ]
     
     let tableView = UITableView()
@@ -136,7 +136,7 @@ class ExerciseCustomeCell : UITableViewCell {
         addSubview(exDuration)
         exImage.frame = CGRect(x: 10, y: 10, width: 100, height: 100)
         exName.frame = CGRect(x: 120, y: 20, width: 120, height: 30)
-        exDiscription.frame = CGRect(x: 120, y: 40, width: 120, height: 30)
+        exDiscription.frame = CGRect(x: 120, y: 40, width: 200, height: 30)
         exDuration.frame = CGRect(x: 120, y: 70, width: 120, height: 30)
     }
     
