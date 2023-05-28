@@ -25,6 +25,7 @@ class DayPlanViewController: UIViewController, UITableViewDataSource ,UITableVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Daily Plan"
         view.backgroundColor = UIColor.white
         view.addSubview(tableView)
         tableView.dataSource = self
@@ -34,13 +35,13 @@ class DayPlanViewController: UIViewController, UITableViewDataSource ,UITableVie
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -0),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -0),
  
                     ])
-        setupWelcomeLabel()
+       // setupWelcomeLabel()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

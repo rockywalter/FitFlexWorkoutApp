@@ -130,7 +130,7 @@ class UserDetailsViewController: UIViewController {
         stackView.addArrangedSubview(textField3)
         stackView.addArrangedSubview(textField4)
         stackView.addArrangedSubview(genderSelect)
-        stackView.addArrangedSubview(nextButton)
+      //  stackView.addArrangedSubview(nextButton)
         
 
     }
@@ -176,3 +176,4 @@ class UserDetailsViewController: UIViewController {
 
     
 }
+	

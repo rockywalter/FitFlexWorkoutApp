@@ -12,14 +12,16 @@ class WorkoutListViewController: UIViewController , UITableViewDataSource ,UITab
     let finishButton = UIButton()
     let startLabel = UILabel()
 
-    let exercises = [
-        Exercise(image: "e1", name: "Squats",discription:" Lower body exercise", duration: "10"),
-        Exercise(image: "e2", name: "Run",discription:"A form of aerobic exercise", duration: "20min"),
-        Exercise(image: "e3", name: "Bench Press",discription:"Good for chest", duration: "10"),
-        Exercise(image: "e4", name: "Back Press",discription:"Good for Back", duration: "15"),
-        Exercise(image: "e5", name: "Burpees",discription:"Good for all body", duration: "2min"),
-        Exercise(image: "e5", name: "Mountain climbers",discription:"Good for all body", duration: "2min")
-    ]
+//    let exercises = [
+//        Exercise(image: "e1", name: "Squats",discription:" Lower body exercise", duration: "10"),
+//        Exercise(image: "e2", name: "Run",discription:"A form of aerobic exercise", duration: "20min"),
+//        Exercise(image: "e3", name: "Bench Press",discription:"Good for chest", duration: "10"),
+//        Exercise(image: "e4", name: "Back Press",discription:"Good for Back", duration: "15"),
+//        Exercise(image: "e5", name: "Burpees",discription:"Good for all body", duration: "2min"),
+//        Exercise(image: "e5", name: "Mountain climbers",discription:"Good for all body", duration: "2min")
+//    ]
+    
+    var exercisesList = [Exercises]()
     
     let tableView = UITableView()
 
@@ -43,26 +45,37 @@ class WorkoutListViewController: UIViewController , UITableViewDataSource ,UITab
         
         setupfinishButton()
         setupEXLabel()
+        
+        let anonymousFunction = { (fetchedExercisesList : [Exercises]) in
+            DispatchQueue.main.async {
+                self.exercisesList = fetchedExercisesList
+                self.tableView.reloadData()
+            }
+    
+        }
+        
+        ExerciseAPI.shared.fetchExercises(onCompletion: anonymousFunction)
+        
        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return exercises.count
+        return exercisesList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ExerciseCustomeCell
-        let exercise = exercises[indexPath.row]
-        cell.exImage.image = UIImage(named: exercise.image)
-        cell.exName.text = exercise.name
+        let exercise = exercisesList[indexPath.row]
+    //    cell.exImage.image = UIImage(named: exercise.image)
+        cell.exName.text = exercise.exerciseName
         cell.exDuration.text = exercise.duration
-        cell.exDiscription.text = exercise.discription
+        cell.exDiscription.text = exercise.description
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print("cell of \(exercises[indexPath.row].name) is clicked")
+        print("cell of \(exercisesList[indexPath.row].exerciseName) is clicked")
     }
     
     func setupfinishButton()
@@ -146,7 +159,7 @@ class ExerciseCustomeCell : UITableViewCell {
 }
 
 
-struct Exercise{
+struct Exercise : Equatable {
     var image : String
     var name : String
     var discription : String

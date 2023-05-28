@@ -177,7 +177,7 @@ class GoalSelectionViewController: UIViewController , UIPickerViewDataSource, UI
     }
     
     @objc func buttonTapped() {
-            let nextScreen = DayPlanViewController()
+            let nextScreen = HomeViewController()
         navigationController?.pushViewController(nextScreen, animated: true)
         }
     

@@ -20,8 +20,8 @@ class HomeViewController: UIViewController {
     func setupTtab()
     {
         let firstVC = UINavigationController(rootViewController:DayPlanViewController())
-        let secondVC = UINavigationController(rootViewController:GoalSelectionViewController())
-        let thirdVC = UINavigationController(rootViewController:UserDetailsViewController())
+        let secondVC = UINavigationController(rootViewController:CustomScheduleViewController())
+        let thirdVC = UINavigationController(rootViewController:ProfileViewController())
         
         firstVC.title = "Exercises"
         secondVC.title = "Custom"
