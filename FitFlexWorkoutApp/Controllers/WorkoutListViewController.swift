@@ -11,15 +11,6 @@ class WorkoutListViewController: UIViewController , UITableViewDataSource ,UITab
     
     let finishButton = UIButton()
     let startLabel = UILabel()
-
-//    let exercises = [
-//        Exercise(image: "e1", name: "Squats",discription:" Lower body exercise", duration: "10"),
-//        Exercise(image: "e2", name: "Run",discription:"A form of aerobic exercise", duration: "20min"),
-//        Exercise(image: "e3", name: "Bench Press",discription:"Good for chest", duration: "10"),
-//        Exercise(image: "e4", name: "Back Press",discription:"Good for Back", duration: "15"),
-//        Exercise(image: "e5", name: "Burpees",discription:"Good for all body", duration: "2min"),
-//        Exercise(image: "e5", name: "Mountain climbers",discription:"Good for all body", duration: "2min")
-//    ]
     
     var exercisesList = [Exercises]()
     
@@ -54,7 +45,7 @@ class WorkoutListViewController: UIViewController , UITableViewDataSource ,UITab
     
         }
         
-        ExerciseAPI.shared.fetchExercises(onCompletion: anonymousFunction)
+        ExerciseAPI.shared.fetchFilterdExercises(fitnessLevel: glFitnessLevel, goal: glGoal,onCompletion: anonymousFunction)
         
        
     }
@@ -66,15 +57,16 @@ class WorkoutListViewController: UIViewController , UITableViewDataSource ,UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ExerciseCustomeCell
         let exercise = exercisesList[indexPath.row]
-    //    cell.exImage.image = UIImage(named: exercise.image)
+        cell.exImage.image = UIImage(named: "exercise.png")
         cell.exName.text = exercise.exerciseName
         cell.exDuration.text = exercise.duration
-        cell.exDiscription.text = exercise.description
+        cell.exGoal.text = exercise.goal
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        showDesAlert(title: "Exercise Details", message: "\(exercisesList[indexPath.row].description)")
         print("cell of \(exercisesList[indexPath.row].exerciseName) is clicked")
     }
     
@@ -131,6 +123,18 @@ class WorkoutListViewController: UIViewController , UITableViewDataSource ,UITab
         
         
     }
+    
+    func showDesAlert(title:String , message: String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel , handler: nil)
+        alert.addAction(action)
+        DispatchQueue.main.async {
+            self.present(alert, animated: true ,completion: nil)
+        }
+        
+    }
+    
    
 }
 
@@ -138,19 +142,19 @@ class ExerciseCustomeCell : UITableViewCell {
     
     let exImage = UIImageView()
     let exName = UILabel()
-    let exDiscription = UILabel()
+    let exGoal = UILabel()
     let exDuration = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview(exImage)
         addSubview(exName)
-        addSubview(exDiscription)
+        addSubview(exGoal)
         addSubview(exDuration)
         exImage.frame = CGRect(x: 10, y: 10, width: 100, height: 100)
-        exName.frame = CGRect(x: 120, y: 20, width: 120, height: 30)
-        exDiscription.frame = CGRect(x: 120, y: 40, width: 200, height: 30)
-        exDuration.frame = CGRect(x: 120, y: 70, width: 120, height: 30)
+        exName.frame = CGRect(x: 120, y: 20, width: 400, height: 30)
+        exGoal.frame = CGRect(x: 120, y: 40, width: 400, height: 30)
+        exDuration.frame = CGRect(x: 120, y: 70, width: 400, height: 30)
     }
     
     required init?(coder: NSCoder) {
@@ -158,10 +162,3 @@ class ExerciseCustomeCell : UITableViewCell {
     }
 }
 
-
-struct Exercise : Equatable {
-    var image : String
-    var name : String
-    var discription : String
-    var duration : String
-}

@@ -26,7 +26,6 @@ class HomeViewController: UIViewController {
         firstVC.title = "Exercises"
         secondVC.title = "Custom"
         thirdVC.title = "Profile"
-
         
         tabBar.setViewControllers([firstVC,secondVC,thirdVC], animated: true)
 

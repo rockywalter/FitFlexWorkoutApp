@@ -53,6 +53,7 @@ class DayPlanViewController: UIViewController, UITableViewDataSource ,UITableVie
         let day = days[indexPath.row]
         cell.dayImage.image = UIImage(named: day.image)
         cell.dayName.text = day.name
+
         return cell
     }
     

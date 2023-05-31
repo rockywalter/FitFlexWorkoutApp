@@ -7,16 +7,26 @@
 
 import UIKit
 
+var glGoal : String!
+var glFitnessLevel  : String!
+var glbmi  : String!
+
 class GoalSelectionViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDelegate {
     
+    var userName: String!
+    var height : String!
+    var weight : String!
+    var age :String!
+    var gender : Int!
     let bmiImage = UIImageView()
     let stackView = UIStackView()
-    
+    let bmiLabel = UILabel()
     let goalTextField = UITextField()
     let goalPickerView = UIPickerView()
-    let goalOptions = ["Weight Loss", "Muscle Building", "Fitness Maintenance"]
-    
+    let goalOptions = ["Weight loss", "Muscle building", "Fitness maintenance"]
+    var selectedOption : String!
     let finishButton = UIButton()
+    let fitnessSelect = UISegmentedControl()
     
     
     
@@ -28,6 +38,12 @@ class GoalSelectionViewController: UIViewController , UIPickerViewDataSource, UI
         setupBMIImage()
         configureStack()
         setupfinishButton()
+        
+        print(userName!)
+        print(height!)
+        print(weight!)
+        print(age!)
+        print(gender!)
     
 
         // Do any additional setup after loading the view.
@@ -76,8 +92,32 @@ class GoalSelectionViewController: UIViewController , UIPickerViewDataSource, UI
     
     func addObjectToStackView ()
     {
-        let bmiLabel = UILabel()
-        bmiLabel.text = "BMI 24.2 | Normal Weight"
+      
+       
+        if let calculatedBMI = calculateBMI() {
+            let formattedBMI = String(format: "%.2f", calculatedBMI)
+            
+            let bmiCategory = getCategory(forBMI: calculatedBMI)
+            var categoryText = ""
+            
+                switch bmiCategory {
+                case .underweight:
+                    categoryText = "Underweight"
+                case .normalWeight:
+                    categoryText = "Normal Weight"
+                case .overweight:
+                    categoryText = "Overweight"
+                case .obese:
+                    categoryText = "Obese"
+                }
+                
+                let category = categoryText
+            
+            bmiLabel.text = "BMI : \(formattedBMI) | \(category)"
+        } else {
+            // Handle invalid input or calculation error
+            bmiLabel.text = "Invalid input"
+        }
         bmiLabel.font = UIFont.boldSystemFont(ofSize: 20)
         bmiLabel.textColor = UIColor.black
         bmiLabel.textAlignment = .center
@@ -102,11 +142,11 @@ class GoalSelectionViewController: UIViewController , UIPickerViewDataSource, UI
         fitnessLabel.textColor = UIColor.black
         fitnessLabel.textAlignment = .left
         
-        let fitnessSelect = UISegmentedControl()
+        
         fitnessSelect.backgroundColor = UIColor.secondarySystemBackground
         fitnessSelect.insertSegment(withTitle: "Beginner", at: 0, animated: true)
         fitnessSelect.insertSegment(withTitle: "Intermediate", at: 1, animated: true)
-        fitnessSelect.insertSegment(withTitle: "Advances", at: 1, animated: true)
+        fitnessSelect.insertSegment(withTitle: "Advanced", at: 1, animated: true)
         fitnessSelect.layer.borderWidth = 0.2
         fitnessSelect.layer.borderColor = UIColor.black.cgColor
         
@@ -146,7 +186,7 @@ class GoalSelectionViewController: UIViewController , UIPickerViewDataSource, UI
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let selectedOption = goalOptions[row]
+        selectedOption = goalOptions[row]
         goalTextField.text = selectedOption
         goalTextField.resignFirstResponder() // Dismiss the picker view
     }
@@ -177,10 +217,82 @@ class GoalSelectionViewController: UIViewController , UIPickerViewDataSource, UI
     }
     
     @objc func buttonTapped() {
-            let nextScreen = HomeViewController()
+        assignUserInputs()
+        let nextScreen = HomeViewController()
         navigationController?.pushViewController(nextScreen, animated: true)
         }
     
+     
+    func assignUserInputs()
+    {
+        glGoal = selectedOption;
+        glbmi = bmiLabel.text
+       
+        let selectedIndex = fitnessSelect.selectedSegmentIndex
+        
+        switch selectedIndex {
+        case 0:
+           
+           glFitnessLevel = "Beginner"
+           
+        case 1:
+          
+            glFitnessLevel = "Advanced"
+           
+        case 2:
+          
+            glFitnessLevel = "Intermediate"
+           
+        default:
+            break
+        }
+       
+
+    }
+    
+    
+        func calculateBMI() -> Double?{
+            guard let heightValue = Double(height),
+                     let weightValue = Double(weight),
+                  let _ = Int(age) else {
+                   return nil
+               }
+            
+            let heightInMeters = heightValue / 100 // Convert height from centimeters to meters
+                let bmi = weightValue / (heightInMeters * heightInMeters)
+                
+                // Adjust BMI calculation based on gender
+                if gender == 0 { // Male
+                    return bmi * 1.0
+                } else if gender == 1 { // Female
+                    return bmi * 0.9
+                }
+            
+                
+                return nil
+        }
+
+    func getCategory(forBMI bmi: Double) -> BMIStatus {
+        if bmi < 18.5 {
+            return .underweight
+        } else if bmi < 25 {
+            return .normalWeight
+        } else if bmi < 30 {
+            return .overweight
+        } else {
+            return .obese
+        }
+    }
+
+    
 
 
+}
+
+
+enum BMIStatus {
+    case underweight
+    case normalWeight
+    case overweight
+    case obese
 }

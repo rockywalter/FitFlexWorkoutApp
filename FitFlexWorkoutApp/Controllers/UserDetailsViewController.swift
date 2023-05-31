@@ -7,6 +7,11 @@
 
 import UIKit
 
+var glheight : String!
+var glweight  : String!
+var glage  : String!
+var glName  : String!
+
 class UserDetailsViewController: UIViewController {
     
 
@@ -16,6 +21,11 @@ class UserDetailsViewController: UIViewController {
     let  stackView = UIStackView()
     let label = UILabel()
     let nextButton = UIButton()
+    let textField1 = UITextField()
+    let textField2 = UITextField()
+    let textField3 = UITextField()
+    let textField4 = UITextField()
+    let genderSelect = UISegmentedControl()
     
     
 
@@ -25,7 +35,7 @@ class UserDetailsViewController: UIViewController {
         setupLogo()
         configureStackView()
         setupNextButton()
-       // setupLabel()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -84,35 +94,35 @@ class UserDetailsViewController: UIViewController {
 
     func addObjectToStackView()
     {
-         let textField1 = UITextField()
+         
          textField1.placeholder = "Name"
         textField1.backgroundColor = UIColor.secondarySystemBackground
         textField1.layer.borderWidth = 0.2
         textField1.borderStyle = .roundedRect
         textField1.layer.borderColor = UIColor.black.cgColor
 
-        let textField2 = UITextField()
-        textField2.placeholder = "Hight"
+       
+        textField2.placeholder = "Hight - cm"
         textField2.backgroundColor = UIColor.secondarySystemBackground
         textField2.borderStyle = .roundedRect
         textField2.layer.borderWidth = 0.2
         textField2.layer.borderColor = UIColor.black.cgColor
 
-        let textField3 = UITextField()
-        textField3.placeholder = "Weight"
+       
+        textField3.placeholder = "Weight - Kg"
         textField3.backgroundColor = UIColor.secondarySystemBackground
         textField3.borderStyle = .roundedRect
         textField3.layer.borderWidth = 0.2
         textField3.layer.borderColor = UIColor.black.cgColor
 
-        let textField4 = UITextField()
+       
         textField4.placeholder = "Age"
         textField4.backgroundColor = UIColor.secondarySystemBackground
         textField4.borderStyle = .roundedRect
         textField4.layer.borderWidth = 0.2
         textField4.layer.borderColor = UIColor.black.cgColor
 
-        let genderSelect = UISegmentedControl()
+        
         genderSelect.backgroundColor = UIColor.secondarySystemBackground
         genderSelect.insertSegment(withTitle: "Male", at: 0, animated: true)
         genderSelect.insertSegment(withTitle: "Female", at: 1, animated: true)
@@ -161,13 +171,22 @@ class UserDetailsViewController: UIViewController {
     }
     
     @objc func buttonTapped() {
-            let nextScreen = GoalSelectionViewController()
+        assignUserDetails()
+        let nextScreen = GoalSelectionViewController()
+        nextScreen.userName = textField1.text ?? ""
+        nextScreen.height = textField2.text ?? ""
+        nextScreen.weight = textField3.text ?? ""
+        nextScreen.age = textField4.text ?? ""
+        nextScreen.gender = genderSelect.selectedSegmentIndex 
         navigationController?.pushViewController(nextScreen, animated: true)
         }
     
-    func setupLabel()
+    func assignUserDetails()
     {
-        
+        glName = textField1.text
+        glheight = textField2.text
+        glweight = textField3.text
+        glage  = textField4.text
         
     }
     
